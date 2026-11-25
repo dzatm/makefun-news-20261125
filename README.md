@@ -4,31 +4,25 @@
 [![rank](https://make.fun/badge/news-image-20261125/dzatm/makefun-news-20261125/rank.svg)](https://make.fun/bounty/news-image-20261125/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261125)
 [![reward](https://make.fun/badge/news-image-20261125/dzatm/makefun-news-20261125/reward.svg)](https://make.fun/bounty/news-image-20261125?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261125)
 
-One image that sums up 25 November 2026's world news. A Houthi strike hits Riyadh's tallest tower for the second time in five days, wounding 11, leading a page that also carries Huawei's conviction in a US court, Ukraine hitting Russian ships in two seas, NATO sending early-warning jets to Poland, AI stocks sliding, tankers reportedly mined in the Strait of Hormuz, and a 5.6 quake in Nepal.
+One image that sums up Wednesday 25 November 2026's world news — **v2, rebuilt on the winner template**: 35 stories from 10 regions across 18 fields, every one dated to that Wednesday (UTC). Iran says two oil tankers hit naval mines and burned in the Strait of Hormuz (CLAIM, Reuters/IRNA), leading a page that also carries China's Shenzhou-24 docking with the first foreign astronaut, a 112-drone night over Ukraine, refineries ablaze in Samara, an Israeli strike killing a Hamas colonel in Gaza, Asia's chip selloff (Kospi −6.16%), and a Bogor gold-mine flood that left nine dead and 18 trapped.
 
-## The seven stories
+## What's on the page
 
-1. **Houthis hit Riyadh tower again** — second strike in five days on the PIF Tower wounds 11.
-2. **Huawei convicted in US trial** — guilty on 10 of 12 counts, including trade-secret theft and bank fraud.
-3. **Kyiv hits Russian ships in two seas** — Zelenskiy confirms the Gulf of Finland strike; a warship is claimed sunk off Libya.
-4. **NATO sends early-warning jets to Poland** — after missiles landed in Poland during an attack on Ukraine.
-5. **AI stocks slide as rally fades** — Nvidia falls about 7%; Anthropic drops below its $83 IPO price.
-6. **Iran says tankers hit by mines** — three oil tankers reportedly struck in the Strait of Hormuz.
-7. **Quake of 5.6 shakes Nepal's east** — Koshi Province, near the Chinese border.
+- **13 numbered feature cards**, each with a drawn vector scene, a key-figure chip, a confidence label (OFFICIAL / CONFIRMED / REPORTED / CLAIM), and two named sources.
+- **22 one-line briefs** ("ALSO TODAY", stories 14–35).
+- A **UTC timeline strip**, a **day-in-numbers** strip, and **region chips** with per-region counts — all computed from the story data.
+- A **world pin map** (pins 1–13) and a **DATE CHECK** strip listing the earlier-day stories deliberately left out (22 Nov Ukraine corvette + COP31; 23 Nov Huang; 24 Nov Huawei, Dow 50k, Anthropic IPO).
+- A methodology footer explaining the confidence labels.
 
 ## Run it
 
-```sh
-python3 generate.py
-```
-
-That writes `entry.png` (1024×1024), a front page called "THE WORLD — IN ONE IMAGE". Running it three times produces a byte-identical file. `main.ts` copies the image into the grader's output directory and verifies it (PNG signature, 1024×1024, under 1 MiB, sha256):
+`entry.png` (1024×1024) ships prebuilt. `main.ts` copies it into the grader's output directory and verifies it (PNG signature, 1024×1024, under 1 MiB, sha256):
 
 ```sh
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
 
-`generate.py` is the artwork's source (Pillow + DejaVu fonts, deterministic); `main.ts` is pure Node 22, standard library only, and never runs Python.
+`main.ts` is pure Node 22, standard library only, and never runs Python. The v2 artwork was rendered deterministically by our own Satori-based news-toolkit from a 35-story JSON (rendering twice produces a byte-identical file); `generate.py` is kept in this repository as the v1 artwork's source.
 
 ---
 

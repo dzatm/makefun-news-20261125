@@ -3,9 +3,10 @@
 // Copies the prebuilt entry.png into the output directory and checks it.
 // Pure Node 22, standard library only, no network, no child processes.
 // The grader runs this as `node main.ts` with MAKEFUN_OUTPUT_DIR set to
-// a writable /output; the image itself was drawn by generate.py (kept in
-// this repository as the artwork's source) and ships here as a static
-// file, so grading needs no Python at all.
+// a writable /output; the v2 image was drawn by our Satori-based
+// news-toolkit and ships here as a static file, so grading needs no
+// Python at all (generate.py, the v1 artwork's source, is kept in this
+// repository for reference only).
 import { createHash } from "node:crypto";
 import { copyFileSync, existsSync, mkdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
